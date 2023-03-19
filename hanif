@@ -1,0 +1,51 @@
+include "SLL.H"
+
+void Createlist_1303213043(List &IM){
+    first(IM) = NULL;
+}
+adr Newelement_1303213043(infotype x){
+    adr p = new element;
+    info(p) = x;
+    next(p) = NULL;
+    return p;
+}
+void Insertfirst_1303213043(List &IM, adr p){
+    if (first(IM) == NULL) {
+        first(IM) = p;
+    } else {
+        next(p) = first(IM);
+        first(IM) = p;
+    }
+}
+void Show_1303213043(List IM){
+    if (first(IM) != NULL){
+        adr p = first(IM);
+        while (p != NULL) {
+            cout << info(p) << " ";
+            p = next(p);
+        }
+        //cout << endl;
+    } else {
+        cout << "List Kosong" << endl;
+    }
+    cout << endl;
+}
+adr Deletelast_1303213043(List &IM){
+    adr p,q;
+    if (first(IM) == NULL){
+        p = NULL;
+        cout << "List Kosong" << endl;
+    } else if (next(first(IM)) == NULL){
+        p = first(IM);
+        first(IM) = NULL;
+    } else {
+        q = first(IM);
+        p = first(IM);
+        while (next(p) != NULL){
+            q = p;
+            p = next(p);
+        }
+        next(q) = NULL;
+    }
+    return p;
+}
